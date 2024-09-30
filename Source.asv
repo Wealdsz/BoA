@@ -1,0 +1,21 @@
+classdef Source
+    %SOURCE Summary of this class goes here
+    %   Detailed explanation goes here
+    
+    properties
+        Property1
+    end
+    
+    methods
+        function bits = Source(seq_len, p)
+            rnd = rand(1, seq_len);
+            change = rnd <= p;
+            rnd(:) = 1;
+            rnd(change) = 0;
+            bit 
+        end
+        
+        
+    end
+end
+
