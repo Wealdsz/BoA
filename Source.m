@@ -1,7 +1,4 @@
 classdef Source
-    %SOURCE Summary of this class goes here
-    %   Detailed explanation goes here
-    
     properties
         len
         p
@@ -23,8 +20,6 @@ classdef Source
             rnd(change) = 0;
             a = rnd;
         end
-        
-        
     end
 end
 
