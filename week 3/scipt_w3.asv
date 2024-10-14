@@ -1,25 +1,27 @@
-u = [0,0,0,0,1,0
-len_u = length(u);
+u = Util();
+
+N_rep = ;
+q = 1e-1;
 
 
-subplot(2,1,1);
-x = 1:len_u;
-scatter(x,u);
+s = Source(100, 0.6).bit_sequence;
+s_enc = u.repencode(s, N_rep);
 
-subplot(2,1,2);
-x = 1:2*len_u-1;
-c = xcorr(b,u);
-[m,i] = max(c);
-offset = i-1
-pseudo_u = u(offset:offset+length(b)-1)
-plot(x,c);
+figure(3);
+subplot(5, 1, 1);
+scatter(1:length(s_enc), s_enc);
 
+s_key = u.add_keys(s_enc);
+s_mod = modulator.modulate(s_key);
 
+%channel----
+s_modnoise = awgn(s_mod, 10);
+s_someerr = [zeros(1, 136), s_modnoise, zeros(1,28)];
+%----------------
 
-
-function rnd = rndm(len)
-    rnd = rand(1, len);
-    change = rnd <= 0.5;
-    rnd(:) = 1;
-    rnd(change) = -1;
-end
+s_symsync = Sync.symbolsync(s_someerr);
+s_demod = modulator.demodulate(s_modnoise);
+s_frame = Sync.framesync(s_demod);
+s2_dec = u.repdecode(s_frame, N_rep);
+ber = BER.calc_BER(s, s2_dec)
+d = Drain(s2_dec);
