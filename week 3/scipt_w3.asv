@@ -1,0 +1,25 @@
+u = [0,0,0,0,1,0
+len_u = length(u);
+
+
+subplot(2,1,1);
+x = 1:len_u;
+scatter(x,u);
+
+subplot(2,1,2);
+x = 1:2*len_u-1;
+c = xcorr(b,u);
+[m,i] = max(c);
+offset = i-1
+pseudo_u = u(offset:offset+length(b)-1)
+plot(x,c);
+
+
+
+
+function rnd = rndm(len)
+    rnd = rand(1, len);
+    change = rnd <= 0.5;
+    rnd(:) = 1;
+    rnd(change) = -1;
+end

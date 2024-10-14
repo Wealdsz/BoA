@@ -45,8 +45,8 @@ classdef Util
             end
         end
 
-        function y = add_keys(self, x)
-            y = [constants.zpraeambulare_begin, x, constants.zpraeambulare_end];
+        function y = add_keys(x)
+            y = 
         end
     end
 end
