@@ -5,6 +5,7 @@ classdef constants
         f0 = 1/20
         tau_1 = 8
         f1 = 1/8
+        fs = 22044;
 
         praeambulare_begin = [1,-1,1,-1,1,-1,1,-1,1];
         praeambulare_end = [1,1,1,-1,1,-1,-1,-1,1];
