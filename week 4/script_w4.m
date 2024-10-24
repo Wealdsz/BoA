@@ -25,13 +25,8 @@ plot(1:length(s_mod), s_mod);
 % plot(1:length(s_someerr), s_someerr);
 %----------------
 
-sound = BoAudio();
-s_rec = sound.playcord(s_mod);
-subplot(5,1,3);
-plot(s_rec);
 
-
-s_symsync = Sync.symbolsync(s_rec);
+s_symsync = Sync.symbolsync(s_mod);
 s_demod = modulator.demodulate(s_symsync);
 
 figure(3);
