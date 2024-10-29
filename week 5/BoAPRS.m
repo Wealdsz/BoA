@@ -15,7 +15,7 @@ clear
 % -show packet data even if the checksum is not correct
 % -show iteration counter
 % default 0
-debug = 0;
+debug = 1;
 
 % set to 0 to:
 % -read audiodata form 'filePath' file
@@ -23,19 +23,19 @@ debug = 0;
 % -read audiodata from microphone
 % set to 2 to:
 % -read audiodata from file
-online = 0;
+online = 1;
 
 % set to 0 to:
 % -use checkFlagOnline implemented by students
 % set to 1 to:
 % -use solution checkFlagOnline function
-checkFlagSolution = 0;
+checkFlagSolution = 1;
 
 % set to 1 to use the completed solution functions, only for teacher!
 solution = 0;
 
 % path for audiofiles
-filePath = "Samples/finalTest.wav";
+filePath = "/Samples/finalTest.wav";
 simulpath = "Samples/APRSfile.wav";
 
 
